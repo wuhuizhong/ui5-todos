@@ -25,7 +25,7 @@
   },
   "sap.ui5": {
 	"_version": "1.1.0",
-	"rootView": "webapp.view.HelloWorld",
+	"rootView": "webapp.view.App",
 	"dependencies": {
 	  "minUI5Version": "1.30",
 	  "libs": {
@@ -39,6 +39,13 @@
 		  "bundleName": "webapp.i18n.i18n"
 		}
 	  }
+	},
+	"resources": {
+	  "css": [
+		{
+		  "uri": "css/style.css"
+		}
+	  ]
 	}
   }
 }

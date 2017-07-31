@@ -1,0 +1,81 @@
+Subproject Path: CordovaLib
+ANDROID_HOME=/opt/android-sdk-linux
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+Subproject Path: CordovaLib
+Starting a new Gradle Daemon for this build (subsequent builds will be faster).
+Incremental java compilation is an incubating feature.
+:cdvCreateAssetManifest
+:preBuild
+:preReleaseBuild
+:checkReleaseManifest
+:CordovaLib:preBuild UP-TO-DATE
+:CordovaLib:preReleaseBuild UP-TO-DATE
+:CordovaLib:checkReleaseManifest
+:CordovaLib:prepareReleaseDependencies
+:CordovaLib:compileReleaseAidl
+:CordovaLib:compileReleaseNdk UP-TO-DATE
+:CordovaLib:compileLint
+:CordovaLib:copyReleaseLint UP-TO-DATE
+:CordovaLib:mergeReleaseShaders
+:CordovaLib:compileReleaseShaders
+:CordovaLib:generateReleaseAssets
+:CordovaLib:mergeReleaseAssets
+:CordovaLib:mergeReleaseProguardFiles
+:CordovaLib:packageReleaseRenderscript UP-TO-DATE
+:CordovaLib:compileReleaseRenderscript
+:CordovaLib:generateReleaseResValues
+:CordovaLib:generateReleaseResources
+:CordovaLib:packageReleaseResources
+:CordovaLib:processReleaseManifest
+:CordovaLib:generateReleaseBuildConfig
+:CordovaLib:processReleaseResources
+:CordovaLib:generateReleaseSources
+:CordovaLib:incrementalReleaseJavaCompilationSafeguard
+:CordovaLib:compileReleaseJavaWithJavac
+:CordovaLib:compileReleaseJavaWithJavac - is not incremental (e.g. outputs have changed, no previous execution, etc.).
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+:CordovaLib:processReleaseJavaRes UP-TO-DATE
+:CordovaLib:transformResourcesWithMergeJavaResForRelease
+:CordovaLib:transformClassesAndResourcesWithSyncLibJarsForRelease
+:CordovaLib:mergeReleaseJniLibFolders
+:CordovaLib:transformNative_libsWithMergeJniLibsForRelease
+:CordovaLib:transformNative_libsWithSyncJniLibsForRelease
+:CordovaLib:bundleRelease
+:prepareAndroidCordovaLibUnspecifiedReleaseLibrary
+:prepareReleaseDependencies
+:compileReleaseAidl
+:compileReleaseRenderscript
+:generateReleaseBuildConfig
+:generateReleaseResValues
+:generateReleaseResources
+:mergeReleaseResources
+:processReleaseManifest
+:processReleaseResources
+:generateReleaseSources
+:incrementalReleaseJavaCompilationSafeguard
+:compileReleaseJavaWithJavac
+:compileReleaseJavaWithJavac - is not incremental (e.g. outputs have changed, no previous execution, etc.).
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+:compileReleaseNdk UP-TO-DATE
+:compileReleaseSources
+:lintVitalRelease
+:mergeReleaseShaders
+:compileReleaseShaders
+:generateReleaseAssets
+:mergeReleaseAssets
+:transformClassesWithDexForRelease
+:mergeReleaseJniLibFolders
+:transformNative_libsWithMergeJniLibsForRelease
+:processReleaseJavaRes UP-TO-DATE
+:transformResourcesWithMergeJavaResForRelease
+:packageRelease
+:assembleRelease
+:cdvBuildRelease
+
+BUILD SUCCESSFUL
+
+Total time: 5 mins 0.016 secs

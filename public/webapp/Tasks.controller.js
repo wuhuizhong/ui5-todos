@@ -2,11 +2,12 @@ sap.ui.define([
   'sap/ui/core/mvc/Controller',
   'jquery.sap.global',
   'meteor-ui5-mongo/model/Model',
+  'sap/ui/model/resource/ResourceModel',
   'sap/ui/model/json/JSONModel',
   'sap/ui/model/Filter',
   'sap/ui/model/FilterOperator',
   'sap/m/MessageBox'
-], function(Controller, jQuery, MongoModel, JSONModel, Filter, FilterOperator, MessageBox) {
+], function(Controller, jQuery, MongoModel, ResourceModel, JSONModel, Filter, FilterOperator, MessageBox) {
   "use strict";
 
   var CController = Controller.extend("webapp.Tasks", {
@@ -14,11 +15,17 @@ sap.ui.define([
       oTasks: Mongo.Collection.get("Tasks"),
     
       onInit: function() {
+        // set i18n model
+	      var i18nModel = new ResourceModel({
+	      	bundleName : "webapp.i18n.i18n_zh_CN"
+	      });
+	      this.getView().setModel(i18nModel, "i18n");
         // Include our custom style sheet
         jQuery.sap.includeStyleSheet("webapp/style.css");
+        //var oText = sap.ui.getCore().getModel("i18n").getResourceBundle().getText("TITLE");
         // var oModel = new JSONModel({
         //   Tasks: [{
-        //     text: 'This is task 1'
+        //     text: 'This is task 1'+oText
         //   }, {
         //     text: 'This is task 2'
         //   }, {

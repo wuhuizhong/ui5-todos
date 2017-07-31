@@ -5,7 +5,7 @@
           xmlns="sap.m">
 
     <!-- Page for heading and content padding-->
-    <Page title="Todo List"
+    <Page title="{i18n>TITLE}"
           class="sapUiResponsiveContentPadding">
         <content>
             <!-- Grid for responsive layout on different devices -->
@@ -25,7 +25,7 @@
                     <!-- List toolbar -->
                     <headerToolbar>
                         <Toolbar>
-                            <Label text="Add:" />
+                            <Label text="{i18n>firstname}" />
                             <Input change="onAddTask" placeholder="Task text" />
                             <ToolbarSpacer />
                             <ToggleButton tooltip="Show completed tasks"

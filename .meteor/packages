@@ -22,3 +22,5 @@ static-html
 propellerlabsio:meteor-ui5-debug
 msavin:mongol
 propellerlabsio:meteor-ui5-mongo
+cfs:http-methods
+http

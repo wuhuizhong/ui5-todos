@@ -1,0 +1,39 @@
+<mvc:View
+   controllerName="webapp.controller.InvoiceOData"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <List
+      id="invoiceList"
+      headerText="{i18n>invoiceListTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      items="{/Invoices}" >
+      <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>invoiceListTitle}-Remote OData Service"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search="onFilterInvoices" selectOnFocus="false"/>
+         </Toolbar>
+      </headerToolbar>
+      <items>
+        <ObjectListItem
+            title="{Quantity} x {ProductName}"
+            number="{
+		    	parts: [{path: 'ExtendedPrice'}, {path: 'view>/currency'}],
+		    	type: 'sap.ui.model.type.Currency',
+		    	formatOptions: {
+		    		showMeasure: false
+		    	}
+		    }"
+		    numberUnit="{view>/currency}"
+		    numberState="{= ${ExtendedPrice} > 50 ? 'Error' : 'Success' }">
+            <firstStatus>
+			    <ObjectStatus text="{
+			    	path: 'Status',
+			    	formatter: '.formatter.statusText'
+			    }"/>
+			</firstStatus>
+		</ObjectListItem>
+      </items>
+   </List>
+</mvc:View>

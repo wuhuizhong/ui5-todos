@@ -13,7 +13,7 @@
 				</headerContent>
             <content>
                <mvc:XMLView viewName="webapp.view.HelloPanel"/>
-               <mvc:XMLView viewName="webapp.view.InvoiceList"/>
+               <mvc:XMLView viewName="webapp.view.InvoiceOData"/>
             </content>
          </Page>
       </pages>

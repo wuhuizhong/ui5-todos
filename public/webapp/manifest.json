@@ -44,6 +44,13 @@
 		"uri": "Invoices.json"
 	  }
 	},
+	"resources": {
+	  "css": [
+		{
+		  "uri": "css/style.css"
+		}
+	  ]
+	},
 	"routing": {
 	  "config": {
 		"routerClass": "sap.m.routing.Router",
@@ -59,7 +66,7 @@
 		  "target": "overview"
 		},
 		{
-		  "pattern": "detail",
+		  "pattern": "detail/{invoicePath}",
 		  "name": "detail",
 		  "target": "detail"
 		}
@@ -72,13 +79,6 @@
 		  "viewName": "Detail"
 		}
 	  }
-	},
-	"resources": {
-	  "css": [
-		{
-		  "uri": "css/style.css"
-		}
-	  ]
 	}
   }
 }

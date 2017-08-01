@@ -25,6 +25,9 @@ sap.ui.define([
          // set dialog
 			// this._helloDialog = new HelloDialog(this.getRootControl());
 			this._helloDialog = new HelloDialog(this.getAggregation("rootControl"));
+			
+			// create the views based on the url/hash
+			this.getRouter().initialize();
 
         //  // set i18n model
         //  var i18nModel = new ResourceModel({

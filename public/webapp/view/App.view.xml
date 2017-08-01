@@ -3,6 +3,8 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
    displayBlock="true" >
+   <App class="myAppDemoWT" id="app"/>
+   <!--
    <App class="sapUiDemoWT">
       <pages>
          <Page title="{i18n>homePageTitle}">
@@ -13,9 +15,10 @@
 				</headerContent>
             <content>
                <mvc:XMLView viewName="webapp.view.HelloPanel"/>
-               <mvc:XMLView viewName="webapp.view.InvoiceOData"/>
+               <mvc:XMLView viewName="webapp.view.InvoiceList"/>
             </content>
          </Page>
       </pages>
    </App>
+   -->
 </mvc:View>

@@ -34,9 +34,12 @@ sap.ui.define([
 		onPress: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			// oRouter.navTo("detail", {invoicePath: 1});
+			// oRouter.navTo() 方法不能包含/(这是一个特殊的字符)，否则提示如下错误:
+			// Uncaught Error: value "Invoices/1" for segment "{invoicePath}".
+			// 参考: http://www.jianshu.com/p/34a65c4bf96a
+			var sPath = oItem.getBindingContext("invoice").getPath().substr(1);
 			oRouter.navTo("detail", {
-				invoicePath: oItem.getBindingContext("invoice").getPath().substr(1)
+				invoicePath: encodeURIComponent(sPath)
 			});
 		}
 

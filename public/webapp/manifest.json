@@ -60,14 +60,14 @@
 		"routerClass": "sap.m.routing.Router",
 		"viewType": "XML",
 		"viewPath": "webapp.view",
-		"controlId": "app",
+		"controlId": "SplitApp",
 		"controlAggregation": "pages"
 	  },
 	  "routes": [
 		{
 		  "pattern": "",
-		  "name": "overview",
-		  "target": "overview"
+		  "name": "home",
+		  "target": ["master", "home"]
 		},
 		{
 		  "pattern": "detail/{invoicePath}",
@@ -76,6 +76,17 @@
 		}
 	  ],
 	  "targets": {
+        "master": {
+            "viewName": "Master",
+            "controlAggregation": "masterPages",
+            "viewLevel": "1"
+        },
+        "home": {
+            "viewName": "home/Home",
+            "controlAggregation": "detailPages",
+            "viewLevel": "1",
+            "transition": "flip"
+        },
 		"overview": {
 		  "viewName": "Overview"
 		},

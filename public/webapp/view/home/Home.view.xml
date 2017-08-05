@@ -1,0 +1,25 @@
+<mvc:View controllerName="webapp.controller.Home"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+  <Page id="Home"
+      title="OpenUI5"
+      class="sapUiStdPage">
+    <content>
+
+    </content>
+
+    <!-- Footer toolbar -->
+    <footer>
+      <Toolbar>
+        <Button text="{i18n>zsITGroup}" 
+          press="onPressGotoZsITGroup" />
+        <ToolbarSpacer/>
+        <Button text="OpenUI5 ({viewModel>/ui5Version})"
+          press="onPressGotoUi5"
+          class="sapUiHideOnPhone" />
+      </Toolbar>
+    </footer>
+  </Page>
+</mvc:View>
+

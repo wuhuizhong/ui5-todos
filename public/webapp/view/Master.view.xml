@@ -1,0 +1,30 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns="sap.m"
+    controllerName="webapp.controller.Master">
+  <Page id="master"
+      title="{i18n>menu}"
+      icon="sap-icon://action"
+      class="sapUiStdPage">
+    <content>
+      <List id="masterList"
+          itemPress="onItemPress"
+          mode="SingleSelectMaster">
+        <items>
+          <StandardListItem id="demos"
+              title="{i18n>todos}"
+              type="Navigation"
+              custom:to="todos" />
+          <StandardListItem id="tutorial"
+              title="Tutorial"
+              type="Navigation"
+              custom:to="tutorial" />
+          <StandardListItem id="docs"
+              title="Docs"
+              type="Navigation"
+              custom:to="docsQuickstart" />
+        </items>
+      </List>
+    </content>
+  </Page>
+</mvc:View>

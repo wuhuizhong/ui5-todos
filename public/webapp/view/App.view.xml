@@ -2,8 +2,27 @@
    controllerName="webapp.controller.App"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
+   xmlns:u="sap.ui.unified"
    displayBlock="true" >
-   <App class="myAppDemoWT" id="app"/>
+   <u:Shell
+      id="webappShell"
+      icon="/art/logos/openui5.png">
+      <u:headItems>
+        <u:ShellHeadItem
+          id="shellHomeItem"
+          tooltip="Home"
+          icon="sap-icon://home"
+          visible="true"
+          press="handlePressHome" />
+      </u:headItems>
+      <u:user>
+        <u:ShellHeadUserItem
+          image="sap-icon://person-placeholder"
+          username="Sign-in / Join"
+          press="onhandleUserItemPressed" />
+      </u:user>
+      <SplitApp class="myAppDemoWT" id="SplitApp"/>
+   </u:Shell>
    <!--
    <App class="sapUiDemoWT">
       <pages>

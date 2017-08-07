@@ -11,7 +11,7 @@
           itemPress="onItemPress"
           mode="SingleSelectMaster">
         <items>
-          <StandardListItem id="demos"
+          <StandardListItem id="todos"
               title="{i18n>todos}"
               type="Navigation"
               custom:to="todos" />

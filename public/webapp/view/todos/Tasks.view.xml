@@ -1,11 +1,11 @@
-<mvc:View controllerName="webapp.Tasks"
+<mvc:View controllerName="webapp.controller.todos.Tasks"
           height="100%"
           xmlns:mvc="sap.ui.core.mvc"
           xmlns:l="sap.ui.layout"
           xmlns="sap.m">
 
     <!-- Page for heading and content padding-->
-    <Page title="{i18n>TITLE}"
+    <Page title="{i18n>todos}"
           class="sapUiResponsiveContentPadding">
         <content>
             <!-- Grid for responsive layout on different devices -->

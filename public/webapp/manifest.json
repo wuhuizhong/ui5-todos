@@ -73,6 +73,11 @@
 		  "pattern": "detail/{invoicePath}",
 		  "name": "detail",
 		  "target": "detail"
+		},
+		{
+		  "pattern": "/todos",
+		  "name": "todos",
+		  "target": "todos"
 		}
 	  ],
 	  "targets": {
@@ -85,6 +90,12 @@
             "viewName": "home/Home",
             "controlAggregation": "detailPages",
             "viewLevel": "1",
+            "transition": "flip"
+        },
+        "todos": {
+            "viewName": "todos/Tasks",
+            "controlAggregation": "detailPages",
+            "viewLevel": "2",
             "transition": "flip"
         },
 		"overview": {

@@ -35,11 +35,16 @@ sap.ui.define([
       //   this._oRouter.navTo(sNavTo);
       // }
       
-      // read msg from i18n model
-      var oBundle = this.getView().getModel("i18n").getResourceBundle();
-      var sRecipient = this.getView().getModel().getProperty("/recipient/name");
-      var sMsg = oBundle.getText("underConstruction", [sRecipient]);
-      MessageBox.information(sMsg);
+      if (sNavTo === 'todos') {
+        this._oRouter.navTo('todos');
+      } else {
+        // read msg from i18n model
+        var oBundle = this.getView().getModel("i18n").getResourceBundle();
+        var sRecipient = this.getView().getModel().getProperty("/recipient/name");
+        var sMsg = oBundle.getText("underConstruction", [sRecipient]);
+        MessageBox.information(sMsg);
+      }
+      
     },
 
     _onRoutePatterMatched(oEvent) {

@@ -10,7 +10,7 @@ sap.ui.define([
 ], function(Controller, jQuery, MongoModel, ResourceModel, JSONModel, Filter, FilterOperator, MessageBox) {
   "use strict";
 
-  var CController = Controller.extend("webapp.Tasks", {
+  var CController = Controller.extend("webapp.controller.todos.Tasks", {
       
       oTasks: Mongo.Collection.get("Tasks"),
     

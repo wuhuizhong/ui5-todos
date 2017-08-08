@@ -25,10 +25,10 @@
                     <!-- List toolbar -->
                     <headerToolbar>
                         <Toolbar>
-                            <Label text="{i18n>firstname}" />
-                            <Input change="onAddTask" placeholder="Task text" />
+                            <Label text="{i18n>add}" />
+                            <Input change="onAddTask" placeholder="{i18n>taskText}" />
                             <ToolbarSpacer />
-                            <ToggleButton tooltip="Show completed tasks"
+                            <ToggleButton tooltip="{i18n>showCompletedTasks}"
                               pressed="{ViewState>/showCompleted}"
                               icon="sap-icon://complete"
                               press="onPressShowCompleted" />

@@ -18,7 +18,7 @@
       <u:user>
         <u:ShellHeadUserItem
           image="sap-icon://person-placeholder"
-          username="Sign-in / Join"
+          username="{i18n>login}"
           press="onhandleUserItemPressed" />
       </u:user>
       <SplitApp class="myAppDemoWT" id="SplitApp"/>

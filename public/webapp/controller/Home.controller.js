@@ -1,13 +1,13 @@
 sap.ui.define([
-  'sap/ui/core/mvc/Controller',
+  'webapp/controller/BaseController',
   'sap/ui/model/json/JSONModel'
-], function(Controller, JSONModel) {
+], function(BaseController, JSONModel) {
   "use strict";
 
-  var CController = Controller.extend("webapp.controller.Home", {
+  var CController = BaseController.extend("webapp.controller.Home", {
 
     onInit: function() {
-      this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      // this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
       var oViewModel = new JSONModel({
         meteorRelease: Meteor.release.split('@')[1],

@@ -1,15 +1,23 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
+    "sap/ui/model/odata/ODataModel",
 	"webapp/model/formatter",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (Controller, JSONModel, formatter, Filter, FilterOperator) {
+], function (Controller, JSONModel, ODataModel, formatter, Filter, FilterOperator) {
 	"use strict";
 
-	return Controller.extend("webapp.controller.InvoiceList", {
+	return Controller.extend("webapp.controller.walkthrough.InvoiceOData", {
 	    formatter: formatter,
 		onInit : function () {
+    		// Set up Odata model for Employees - will be populated via Northwind
+    		// odata service.  We use a proxy due to CORS issues with service being
+    		// at different URL.  Calls to URL '/oDataProxy' are redirected to
+    		// http://services.odata.org/V2/Northwind/Northwind.svc
+    		var oModel = new ODataModel('/oDataProxy');
+    		this.getView().setModel(oModel);
+      
 			var oViewModel = new JSONModel({
 				currency: "EUR"
 			});
@@ -29,18 +37,6 @@ sap.ui.define([
 			var oList = this.getView().byId("invoiceList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
-		},
-		
-		onPress: function (oEvent) {
-			var oItem = oEvent.getSource();
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			// oRouter.navTo() 方法不能包含/(这是一个特殊的字符)，否则提示如下错误:
-			// Uncaught Error: value "Invoices/1" for segment "{invoicePath}".
-			// 参考: http://www.jianshu.com/p/34a65c4bf96a
-			var sPath = oItem.getBindingContext("invoice").getPath().substr(1);
-			oRouter.navTo("detail", {
-				invoicePath: encodeURIComponent(sPath)
-			});
 		}
 
 	});

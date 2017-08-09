@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, MessageToast) {
   "use strict";
 
-  var CController = Controller.extend("webapp.controller.HelloWorld", {
+  var CController = Controller.extend("webapp.controller.walkthrough.HelloWorld", {
     
       onInit: function() {
     //     // create a mobile app and display page1 initially

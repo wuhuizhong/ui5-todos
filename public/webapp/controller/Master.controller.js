@@ -25,24 +25,20 @@ sap.ui.define([
       })
 
       // Navigate to target route
-      // if (sNavTo === 'tutorial') {
-      //   this._oRouter.navTo(sNavTo, {
-      //     tutorial: 'mongo',
-      //     step: '00'
-      //   });
-
-      // } else {
-      //   this._oRouter.navTo(sNavTo);
-      // }
+      if (sNavTo === 'tutorial') {
+        // this._oRouter.navTo(sNavTo, {
+        //   tutorial: 'mongo',
+        //   step: '00'
+        // });
       
-      if (sNavTo === 'todos') {
-        this._oRouter.navTo('todos');
-      } else {
         // read msg from i18n model
         var oBundle = this.getView().getModel("i18n").getResourceBundle();
         var sRecipient = this.getView().getModel().getProperty("/recipient/name");
         var sMsg = oBundle.getText("underConstruction", [sRecipient]);
         MessageBox.information(sMsg);
+
+      } else {
+        this._oRouter.navTo(sNavTo);
       }
       
     },

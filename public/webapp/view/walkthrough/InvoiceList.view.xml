@@ -1,5 +1,5 @@
 <mvc:View
-   controllerName="webapp.controller.InvoiceList"
+   controllerName="webapp.controller.walkthrough.InvoiceList"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    <Table

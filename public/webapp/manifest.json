@@ -72,12 +72,17 @@
 		{
 		  "pattern": "detail/{invoicePath}",
 		  "name": "detail",
-		  "target": "detail"
+		  "target": ["master", "detail"]
 		},
 		{
 		  "pattern": "todos",
 		  "name": "todos",
 		  "target": ["master", "todos"]
+		},
+		{
+		  "pattern": "walkthrough",
+		  "name": "walkthrough",
+		  "target": ["master", "overview"]
 		}
 	  ],
 	  "targets": {
@@ -99,10 +104,16 @@
             "transition": "flip"
         },
 		"overview": {
-		  "viewName": "Overview"
+		  "viewName": "walkthrough/Overview",
+          "controlAggregation": "detailPages",
+          "viewLevel": "1",
+          "transition": "flip"
 		},
 		"detail": {
-		  "viewName": "Detail"
+		  "viewName": "walkthrough/Detail",
+          "controlAggregation": "detailPages",
+          "viewLevel": "1",
+          "transition": "flip"
 		}
 	  }
 	}

@@ -8,7 +8,7 @@ sap.ui.define([
 ], function(Controller, ODataModel, Filter, FilterOperator, Sorter, formatter) {
   "use strict";
 
-  var CController = Controller.extend("webapp.controller.EmployeesOData", {
+  var CController = Controller.extend("webapp.controller.walkthrough.EmployeesOData", {
 
     formatter: formatter,
 

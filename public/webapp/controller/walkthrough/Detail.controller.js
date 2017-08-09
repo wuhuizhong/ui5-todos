@@ -5,7 +5,7 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function (Controller, History, MessageToast, JSONModel) {
 	"use strict";
-	return Controller.extend("webapp.controller.Detail", {
+	return Controller.extend("webapp.controller.walkthrough.Detail", {
 		onInit: function () {
 			var oViewModel = new JSONModel({
 				currency: "EUR"

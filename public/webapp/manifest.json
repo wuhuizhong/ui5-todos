@@ -70,11 +70,6 @@
 		  "target": ["master", "home"]
 		},
 		{
-		  "pattern": "detail/{invoicePath}",
-		  "name": "detail",
-		  "target": ["master", "detail"]
-		},
-		{
 		  "pattern": "todos",
 		  "name": "todos",
 		  "target": ["master", "todos"]
@@ -82,7 +77,12 @@
 		{
 		  "pattern": "walkthrough",
 		  "name": "walkthrough",
-		  "target": ["master", "overview"]
+		  "target": ["masterWalkthrough", "overview"]
+		},
+		{
+		  "pattern": "detail/{invoicePath}",
+		  "name": "detail",
+		  "target": ["masterWalkthrough", "detail"]
 		}
 	  ],
 	  "targets": {
@@ -90,6 +90,11 @@
             "viewName": "Master",
             "controlAggregation": "masterPages",
             "viewLevel": "1"
+        },
+        "masterWalkthrough": {
+            "viewName": "walkthrough/Master",
+            "controlAggregation": "masterPages",
+            "viewLevel": "2"
         },
         "home": {
             "viewName": "home/Home",
@@ -103,6 +108,12 @@
             "viewLevel": "1",
             "transition": "flip"
         },
+		"overview": {
+		  "viewName": "walkthrough/Overview",
+          "controlAggregation": "detailPages",
+          "viewLevel": "1",
+          "transition": "flip"
+		},
 		"overview": {
 		  "viewName": "walkthrough/Overview",
           "controlAggregation": "detailPages",

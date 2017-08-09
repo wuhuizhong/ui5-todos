@@ -1,0 +1,28 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns="sap.m"
+    controllerName="webapp.controller.walkthrough.Master">
+  <Page id="master"
+      title="{i18n>walkthrough}"
+      showNavButton="true"
+      navButtonPress="onPressBack"
+      icon="sap-icon://action"
+      class="sapUiStdPage">
+    <content>
+      <List id="masterList"
+          itemPress="onItemPress"
+          mode="SingleSelectMaster">
+        <items>
+          <StandardListItem id="invoice"
+              title="{i18n>homePageTitle}"
+              type="Navigation"
+              custom:to="walkthrough" />
+          <StandardListItem id="employees"
+              title="{i18n>employees}"
+              type="Navigation"
+              custom:to="employees" />
+        </items>
+      </List>
+    </content>
+  </Page>
+</mvc:View>

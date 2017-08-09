@@ -75,9 +75,9 @@
 		  "target": "detail"
 		},
 		{
-		  "pattern": "/todos",
+		  "pattern": "todos",
 		  "name": "todos",
-		  "target": "todos"
+		  "target": ["master", "todos"]
 		}
 	  ],
 	  "targets": {
@@ -95,7 +95,7 @@
         "todos": {
             "viewName": "todos/Tasks",
             "controlAggregation": "detailPages",
-            "viewLevel": "2",
+            "viewLevel": "1",
             "transition": "flip"
         },
 		"overview": {

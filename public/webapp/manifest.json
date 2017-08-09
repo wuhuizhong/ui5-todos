@@ -61,7 +61,10 @@
 		"viewType": "XML",
 		"viewPath": "webapp.view",
 		"controlId": "SplitApp",
-		"controlAggregation": "pages"
+		"controlAggregation": "pages",
+        "bypassed": {
+           "target": "notFound"
+        }
 	  },
 	  "routes": [
 		{
@@ -86,6 +89,11 @@
 		}
 	  ],
 	  "targets": {
+        "notFound": {
+            "viewName": "NotFound",
+            "controlAggregation": "detailPages",
+            "transition": "show"
+        },
         "master": {
             "viewName": "Master",
             "controlAggregation": "masterPages",

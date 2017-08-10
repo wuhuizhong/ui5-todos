@@ -70,6 +70,15 @@ sap.ui.define([
 			if (!this.getView().getBindingContext()) {
 				this.getRouter().getTargets().display("notFound");
 			}
+		},
+		
+		onShowResume : function (oEvent) {
+			// var oCtx = this.getView().getElementBinding().getBoundContext();
+			var oCtx = this.getView().getBindingContext();
+
+			this.getRouter().navTo("employeeResume", {
+				employeeId : oCtx.getProperty("EmployeeID")
+			});
 		}
 		
 	});

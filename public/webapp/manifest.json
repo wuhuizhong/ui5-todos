@@ -98,6 +98,10 @@
 		  "pattern": "employees/{employeeId}",
 		  "name": "employee",
 		  "target": ["masterWalkthrough","employee"]
+		}, {
+		  "pattern": "employees/{employeeId}/resume",
+		  "name": "employeeResume",
+		  "target": ["masterWalkthrough","employeeResume"]
 		}
 	  ],
 	  "targets": {
@@ -150,6 +154,12 @@
 			"viewName": "walkthrough.Employee",
         	"controlAggregation": "detailPages",
 			"viewLevel" : 3
+		},
+		"employeeResume": {
+			"viewName": "walkthrough.Resume",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 4,
+			"transition": "flip"
 		}
 	  }
 	}

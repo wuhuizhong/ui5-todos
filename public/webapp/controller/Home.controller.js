@@ -36,6 +36,10 @@ sap.ui.define([
 				fromTarget : "home"
 			});
 			// 在NotFound controller 的init function中给此事件注册一个监听器
+		},
+		
+		onNavToEmployees : function (oEvent){
+			this.getRouter().navTo("employeeList");
 		}
 
 

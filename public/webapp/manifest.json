@@ -86,6 +86,10 @@
 		  "pattern": "detail/{invoicePath}",
 		  "name": "detail",
 		  "target": ["masterWalkthrough", "detail"]
+		}, {
+		  "pattern": "employees",
+		  "name": "employeeList",
+		  "target": ["masterWalkthrough", "employees"]
 		}
 	  ],
 	  "targets": {
@@ -133,6 +137,12 @@
           "controlAggregation": "detailPages",
           "viewLevel": "1",
           "transition": "flip"
+		},
+		"employees": {
+			"viewPath": "webapp.view.walkthrough",
+			"viewName": "EmployeeList",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 2
 		}
 	  }
 	}

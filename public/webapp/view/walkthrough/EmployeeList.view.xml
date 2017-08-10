@@ -7,12 +7,14 @@
 		navButtonPress="onNavBack"
 		class="sapUiResponsiveContentPadding">
 		<content>
-			<List id="employeeList" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
+			<List id="employeeList" headerText="{i18n>ListOfAllEmployees}" items="{employee>/Employees}">
 				<items>
 					<StandardListItem
-						title="{FirstName} {LastName}"
+						title="{employee>FirstName} {employee>LastName}"
 						iconDensityAware="false"
-						iconInset="false"/>
+						iconInset="false"
+						type="Navigation"
+						press="onListItemPressed"/>
 				</items>
 			</List>
 		</content>

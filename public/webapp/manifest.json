@@ -46,6 +46,10 @@
 	  "invoice": {
 		"type": "sap.ui.model.json.JSONModel",
 		"uri": "Invoices.json"
+	  },
+	  "employee": {
+		"type": "sap.ui.model.json.JSONModel",
+		"uri": "./json/Employees.json"
 	  }
 	},
 	"resources": {
@@ -90,6 +94,10 @@
 		  "pattern": "employees",
 		  "name": "employeeList",
 		  "target": ["masterWalkthrough", "employees"]
+		}, {
+		  "pattern": "employees/{employeeId}",
+		  "name": "employee",
+		  "target": ["masterWalkthrough","employee"]
 		}
 	  ],
 	  "targets": {
@@ -126,12 +134,6 @@
           "viewLevel": "1",
           "transition": "flip"
 		},
-		"overview": {
-		  "viewName": "walkthrough/Overview",
-          "controlAggregation": "detailPages",
-          "viewLevel": "1",
-          "transition": "flip"
-		},
 		"detail": {
 		  "viewName": "walkthrough/Detail",
           "controlAggregation": "detailPages",
@@ -143,6 +145,11 @@
 			"viewName": "EmployeeList",
         	"controlAggregation": "detailPages",
 			"viewLevel" : 2
+		},
+		"employee": {
+			"viewName": "walkthrough.Employee",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 3
 		}
 	  }
 	}

@@ -1,6 +1,6 @@
 sap.ui.define([
 	"webapp/controller/BaseController",
-    "sap/ui/model/json/JSONModel"
+  "sap/ui/model/json/JSONModel"
 ], function (BaseController, JSONModel) {
 	"use strict";
 	return BaseController.extend("webapp.controller.walkthrough.Employee", {
@@ -10,20 +10,20 @@ sap.ui.define([
 				currency: "EUR"
 			});
 			this.getView().setModel(oViewModel, "view");
-			
+
             // Create a json model with data from a file and make it our view model
             // var oModel = new JSONModel('/webapp/json/Employees.json');
             // this.getView().setModel(oModel);
             // 改用manifest.json文件设置model:employee
-            
+
             // 继承 "webapp/controller/BaseController" 时的写法
-			var oRouter = this.getRouter();
+			this._oRouter = this.getRouter();
 			// 继承 "sap/ui/core/mvc/Controller" 时的写法
-			// var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			
+			// this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
 		    // 添加url匹配的监听器(可使用attachPatternMatched)，调用onRouteMatched方法。
-			oRouter.getRoute("employee").attachMatched(this._onRouteMatched, this);
-			
+			this._oRouter.getRoute("employee").attachMatched(this._onRouteMatched, this);
+
 			// Hint: we don't want to do it this way
 			/*
 			oRouter.attachRouteMatched(function (oEvent){
@@ -34,10 +34,10 @@ sap.ui.define([
 				}
 			}, this);
 			*/
-			
+
 		},
-		
-		// 在URL中获取 employeeId 并绑定到 Element ，ODataModel 将在后台处理数据请求. 
+
+		// 在URL中获取 employeeId 并绑定到 Element ，ODataModel 将在后台处理数据请求.
 		// 当数据加载时, 显示busy的标记，可以在dataRequested及dataReceived事件中处理。
 		_onRouteMatched : function (oEvent) {
 			var oView, sPath;
@@ -64,22 +64,27 @@ sap.ui.define([
 				}
 			});
 		},
-		
+
 		_onBindingChange : function (oEvent) {
 			// No data for the binding
 			if (!this.getView().getBindingContext()) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		},
-		
+
 		onShowResume : function (oEvent) {
 			// var oCtx = this.getView().getElementBinding().getBoundContext();
-			var oCtx = this.getView().getBindingContext();
+			// 参考: http://techqa.info/programming/question/37813610/getBindingContext---getProperty-of-undefined
+			var oCtx = this.getView().getBindingContext("employee");
+			var sEmployeeId = oCtx.getProperty("EmployeeID");
+			console.log(sEmployeeId);
 
-			this.getRouter().navTo("employeeResume", {
-				employeeId : oCtx.getProperty("EmployeeID")
+			// this.getRouter().navTo("employeeResume", {
+			this._oRouter.navTo("employeeResume", {
+				//employeeId : oCtx.getProperty("EmployeeID")
+				employeeId : sEmployeeId
 			});
 		}
-		
+
 	});
 });

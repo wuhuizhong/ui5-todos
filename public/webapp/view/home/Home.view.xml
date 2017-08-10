@@ -6,6 +6,7 @@
       title="OpenUI5"
       class="sapUiStdPage">
     <content>
+      <Button id="displayNotFoundBtn" text="{i18n>DisplayNotFound}" press="onDisplayNotFound" class="sapUiTinyMarginEnd"/>
 
     </content>
 

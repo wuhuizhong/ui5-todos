@@ -95,7 +95,7 @@
 		  "name": "employeeList",
 		  "target": ["masterWalkthrough", "employees"]
 		},{
-		  "pattern": "employees/overview",
+		  "pattern": "employees/overview:?query:",
 		  "name": "employeeOverview",
 		  "target": ["masterWalkthrough", "employeeOverviewTop", "employeeOverviewContent"]
 		}, {

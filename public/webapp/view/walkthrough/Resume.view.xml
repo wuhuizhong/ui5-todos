@@ -25,10 +25,10 @@
 						<mvc:XMLView viewName="webapp.view.walkthrough.ResumeProjects"></mvc:XMLView>
 					</IconTabFilter>
 					<IconTabFilter id="hobbiesTab" text="{i18n>Hobbies}" key="Hobbies">
-						<Text text="{Hobbies}" />
+						<!-- place content via lazy loading -->
 					</IconTabFilter>
 					<IconTabFilter id="notesTab" text="{i18n>Notes}" key="Notes">
-						<Text text="{Notes}" />
+						<!-- place content via lazy loading -->
 					</IconTabFilter>
 				</items>
 			</IconTabBar>

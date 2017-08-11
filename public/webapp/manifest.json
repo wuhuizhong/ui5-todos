@@ -160,6 +160,21 @@
         	"controlAggregation": "detailPages",
 			"viewLevel" : 4,
 			"transition": "flip"
+		},
+		"resumeTabHobbies": {
+			"parent": "employeeResume",
+			"viewPath": "webapp.view.walkthrough",
+			"viewName": "ResumeHobbies",
+			"viewId": "thisIsMyCustomIdToBeUsedForResumeHobbies",
+			"controlId": "hobbiesTab",
+			"controlAggregation": "content"
+		},
+		"resumeTabNotes": {
+			"parent": "employeeResume",
+			"viewPath": "webapp.view.walkthrough",
+			"viewName": "ResumeNotes",
+			"controlId": "notesTab",
+			"controlAggregation": "content"
 		}
 	  }
 	}

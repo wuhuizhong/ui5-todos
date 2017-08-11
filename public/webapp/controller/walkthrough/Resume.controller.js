@@ -9,10 +9,13 @@ sap.ui.define([
 		},
 		_onRouteMatched : function (oEvent) {
 			var oArgs, oView;
+			var sPath = decodeURIComponent(oEvent.getParameter("arguments").employeeId);
 			oArgs = oEvent.getParameter("arguments");
 			oView = this.getView();
 			oView.bindElement({
-				path : "/Employees(" + oArgs.employeeId + ")",
+				// path : "/Employees(" + oArgs.employeeId + ")",
+				path : "/" + sPath,
+				model: "employee",
 				events : {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function (oEvent) {
@@ -26,7 +29,7 @@ sap.ui.define([
 		},
 		_onBindingChange : function (oEvent) {
 			// No data for the binding
-			if (!this.getView().getBindingContext()) {
+			if (!this.getView().getBindingContext("employee")) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		}

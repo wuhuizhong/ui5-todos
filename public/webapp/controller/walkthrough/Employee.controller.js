@@ -54,7 +54,7 @@ sap.ui.define([
 				model: "employee",
 				events : {
 				    // 在change事件中，判断能否加载binding context的数据。
-					// change: this._onBindingChange.bind(this),
+					change: this._onBindingChange.bind(this),
 					dataRequested: function (oEvent) {
 						oView.setBusy(true);
 					},
@@ -67,7 +67,7 @@ sap.ui.define([
 
 		_onBindingChange : function (oEvent) {
 			// No data for the binding
-			if (!this.getView().getBindingContext()) {
+			if (!this.getView().getBindingContext("employee")) {
 				this.getRouter().getTargets().display("notFound");
 			}
 		},
@@ -77,12 +77,15 @@ sap.ui.define([
 			// 参考: http://techqa.info/programming/question/37813610/getBindingContext---getProperty-of-undefined
 			var oCtx = this.getView().getBindingContext("employee");
 			var sEmployeeId = oCtx.getProperty("EmployeeID");
-			console.log(sEmployeeId);
+			// 获取点击行的路径, 这个路径需要传递到detail view。
+			// 参考: http://www.jianshu.com/p/34a65c4bf96a
+			var sPath = this.getView().getBindingContext("employee").getPath().substr(1);
+			console.log(sPath);
 
 			// this.getRouter().navTo("employeeResume", {
 			this._oRouter.navTo("employeeResume", {
 				//employeeId : oCtx.getProperty("EmployeeID")
-				employeeId : sEmployeeId
+				employeeId : encodeURIComponent(sPath) //sEmployeeId 不能加载detail数据,原因待查...
 			});
 		}
 

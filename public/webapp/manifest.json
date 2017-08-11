@@ -94,6 +94,10 @@
 		  "pattern": "employees",
 		  "name": "employeeList",
 		  "target": ["masterWalkthrough", "employees"]
+		},{
+		  "pattern": "employees/overview",
+		  "name": "employeeOverview",
+		  "target": ["masterWalkthrough", "employeeOverviewTop", "employeeOverviewContent"]
 		}, {
 		  "pattern": "employees/{employeeId}",
 		  "name": "employee",
@@ -174,6 +178,26 @@
 			"viewPath": "webapp.view.walkthrough",
 			"viewName": "ResumeNotes",
 			"controlId": "notesTab",
+			"controlAggregation": "content"
+		},
+		"employeeOverview": {
+			"viewPath": "webapp.view.walkthrough.employee",
+			"viewName": "EmployeeOverview",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 2
+		},
+		"employeeOverviewTop": {
+			"parent": "employeeOverview",
+			"viewPath": "webapp.view.walkthrough.employee",
+			"viewName": "EmployeeOverviewTop",
+			"controlId": "EmployeeOverviewParent",
+			"controlAggregation": "content"
+		},
+		"employeeOverviewContent": {
+			"parent": "employeeOverview",
+			"viewPath": "webapp.view.walkthrough.employee",
+			"viewName": "EmployeeOverviewContent",
+			"controlId": "EmployeeOverviewParent",
 			"controlAggregation": "content"
 		}
 	  }

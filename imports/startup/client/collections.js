@@ -1,4 +1,5 @@
 // Make collections available on the client
 import {
-  tasks
+  tasks,
+  employees
 } from '../../api/collections/collections.js';

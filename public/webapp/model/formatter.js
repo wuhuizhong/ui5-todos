@@ -27,5 +27,6 @@ sap.ui.define([], function () {
         	var imageData = sValue.substring(104);
         	return "data:image/bmp;base64," + imageData;
 		}
+		
 	};
 });

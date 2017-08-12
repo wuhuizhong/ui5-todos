@@ -20,7 +20,7 @@
           <StandardListItem id="employees"
               title="{i18n>employees}"
               type="Navigation"
-              custom:to="employees" />
+              custom:to="meteorEmployees" />
         </items>
       </List>
     </content>

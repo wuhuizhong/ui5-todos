@@ -106,6 +106,10 @@
 		  "pattern": "employees/{employeeId}/resume:?query:",
 		  "name": "employeeResume",
 		  "target": ["masterWalkthrough","employeeResume"]
+		}, {
+		  "pattern": "meteor/employees",
+		  "name": "meteorEmployees",
+		  "target": ["masterWalkthrough", "meteorEmployees"]
 		}
 	  ],
 	  "targets": {
@@ -199,6 +203,12 @@
 			"viewName": "EmployeeOverviewContent",
 			"controlId": "EmployeeOverviewParent",
 			"controlAggregation": "content"
+		},
+		"meteorEmployees": {
+			"viewPath": "webapp.view.meteor",
+			"viewName": "EmployeesMeteor",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 1
 		}
 	  }
 	}

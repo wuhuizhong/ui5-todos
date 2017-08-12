@@ -9,6 +9,11 @@ export const employees = new Mongo.Collection('Employees');
 
 // Publish
 if (Meteor.isServer) {
+    // Publish tasks
+    Meteor.publish('tasks', () => {
+        return tasks.find();
+    });
+    
     // Publish employees
     Meteor.publish('employees', () => {
         return employees.find();

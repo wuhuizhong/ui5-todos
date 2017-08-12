@@ -35,12 +35,19 @@ sap.ui.define([
         var oModel = new MongoModel();
         this.getView().setModel(oModel);
         
+        // Subscribe to tasks data.
+        this._subscription = Meteor.subscribe('tasks');
+        
         // Our local view state model
         var oViewState = {
           showCompleted: true
         };
         var oViewModel = new JSONModel(oViewState);
         this.getView().setModel(oViewModel, "ViewState");
+      },
+
+      onExit: function(){
+        this._subscription.stop();
       },
 
       onAddTask: function(oEvent){

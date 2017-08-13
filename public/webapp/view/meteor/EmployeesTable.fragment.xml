@@ -1,4 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<Page id="employeesTablePage" title="{i18n>EmployeesTable}"
+  class="sapUiResponsiveContentPadding">
+  <content>
 
     <!-- Table for showing employees -->
     <Table id="EmployeesTable" items="{/Employees}" visible="true" fixedLayout="false">
@@ -80,4 +83,7 @@
             </ViewSettingsDialog>
         </dependents>
     </Table>
+
+  </content>
+</Page>
 </core:FragmentDefinition>

@@ -2,6 +2,10 @@
    controllerName="webapp.controller.walkthrough.InvoiceOData"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
+ 	<Page id="invoiceListPage" title="{i18n>invoiceList}"
+  class="sapUiResponsiveContentPadding">
+  <content>
+
    <List
       id="invoiceList"
       headerText="{i18n>invoiceListTitle}"
@@ -36,4 +40,7 @@
 		</ObjectListItem>
       </items>
    </List>
+
+  </content>
+  </Page>
 </mvc:View>

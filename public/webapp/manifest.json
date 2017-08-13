@@ -83,13 +83,18 @@
 		},
 		{
 		  "pattern": "walkthrough",
-		  "name": "walkthrough",
-		  "target": ["masterWalkthrough", "overview"]
+		  "name": "walkthroughOverview",
+		  "target": ["masterWalkthrough", "walkthroughOverview"]
 		},
 		{
 		  "pattern": "detail/{invoicePath}",
 		  "name": "detail",
 		  "target": ["masterWalkthrough", "detail"]
+		},
+		{
+		  "pattern": "invoice/odata",
+		  "name": "odataInvoice",
+		  "target": ["masterWalkthrough", "odataInvoice"]
 		}, {
 		  "pattern": "employees",
 		  "name": "employeeList",
@@ -140,7 +145,7 @@
             "viewLevel": "1",
             "transition": "flip"
         },
-		"overview": {
+		"walkthroughOverview": {
 		  "viewName": "walkthrough/Overview",
           "controlAggregation": "detailPages",
           "viewLevel": "1",
@@ -148,6 +153,12 @@
 		},
 		"detail": {
 		  "viewName": "walkthrough/Detail",
+          "controlAggregation": "detailPages",
+          "viewLevel": "1",
+          "transition": "flip"
+		},
+		"odataInvoice": {
+		  "viewName": "walkthrough/InvoiceOData",
           "controlAggregation": "detailPages",
           "viewLevel": "1",
           "transition": "flip"

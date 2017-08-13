@@ -13,14 +13,18 @@
           itemPress="onItemPress"
           mode="SingleSelectMaster">
         <items>
-          <StandardListItem id="invoice"
-              title="{i18n>homePageTitle}"
+          <StandardListItem id="walkthroughOverview"
+              title="{i18n>Overview}"
               type="Navigation"
-              custom:to="walkthrough" />
-          <StandardListItem id="employees"
+              custom:to="walkthroughOverview" />
+          <StandardListItem id="meteorEmployees"
               title="{i18n>employees}"
               type="Navigation"
               custom:to="meteorEmployees" />
+          <StandardListItem id="odataInvoice"
+              title="{i18n>Invoice OData}"
+              type="Navigation"
+              custom:to="odataInvoice" />
         </items>
       </List>
     </content>

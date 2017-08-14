@@ -8,7 +8,7 @@
 			<List id="TaskList" headerText="{i18n>TasksWithListId}" items="{viewState>/Task}">
 				<items>
 					<StandardListItem
-						title="{viewState>/text}"/>
+						title="{viewState>/name}"/>
 				</items>
 			</List>
 		</content>

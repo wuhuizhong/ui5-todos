@@ -87,6 +87,11 @@
 		  "target": ["todoLists", "todos"]
 		},
 		{
+		  "pattern": "tasks/{listId}",
+		  "name": "tasksWithListId",
+		  "target": ["todoLists", "tasksWithListId"]
+		},
+		{
 		  "pattern": "walkthrough",
 		  "name": "walkthroughOverview",
 		  "target": ["masterWalkthrough", "walkthroughOverview"]
@@ -151,6 +156,12 @@
         },
         "todos": {
             "viewName": "todos/Tasks",
+            "controlAggregation": "detailPages",
+            "viewLevel": "1",
+            "transition": "flip"
+        },
+        "tasksWithListId": {
+            "viewName": "todos/TasksWithListId",
             "controlAggregation": "detailPages",
             "viewLevel": "1",
             "transition": "flip"

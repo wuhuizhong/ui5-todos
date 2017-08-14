@@ -1,0 +1,41 @@
+<mvc:View controllerName="webapp.controller.todos.TaskLists"
+          height="100%"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:l="sap.ui.layout"
+          xmlns="sap.m">
+
+    <!-- Page for heading and content padding-->
+    <Page title="{i18n>TaskLists}"
+          showNavButton="true"
+		      navButtonPress="onNavBack"
+          class="sapUiResponsiveContentPadding">
+        <content>
+            <!-- Grid for responsive layout on different devices -->
+            <l:Grid defaultSpan="XL8 L8 M8 S12"
+                    defaultIndent="XL2 L2 M2 S0">
+
+                <!-- Tasks list -->
+                <List id="TaskLists"
+                      items="{
+                    path: '/TaskLists',
+                    sorter: {
+                      path: 'createdAt',
+                      descending: true
+                    }}"
+                      selectionChange="onSelectionChange">
+                    <!-- List toolbar -->
+                    <headerToolbar>
+                        <Toolbar>
+                            <Label text="{i18n>add}" />
+                            <Input change="onAddTaskList" placeholder="{i18n>TaskListName}" />
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <!-- Task list item -->
+                    <StandardListItem title="{name}" />
+                </List>
+            </l:Grid>
+        </content>
+    </Page>
+</mvc:View>

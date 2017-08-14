@@ -1,6 +1,7 @@
 // Make collections available on the server
 import {
   tasks,
+  taskLists,
   employees
 } from '../../api/collections/collections.js';
 

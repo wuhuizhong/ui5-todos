@@ -77,9 +77,14 @@
 		  "target": ["master", "home"]
 		},
 		{
+		  "pattern": "todolists",
+		  "name": "todoLists",
+		  "target": ["master", "todoLists"]
+		},
+		{
 		  "pattern": "todos",
 		  "name": "todos",
-		  "target": ["master", "todos"]
+		  "target": ["todoLists", "todos"]
 		},
 		{
 		  "pattern": "walkthrough",
@@ -138,6 +143,11 @@
             "controlAggregation": "detailPages",
             "viewLevel": "1",
             "transition": "flip"
+        },
+        "todoLists": {
+            "viewName": "todos/TaskLists",
+            "controlAggregation": "masterPages",
+            "viewLevel": "1"
         },
         "todos": {
             "viewName": "todos/Tasks",

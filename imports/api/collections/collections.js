@@ -2,6 +2,7 @@ import { Mongo } from 'meteor/mongo';
 
 // Create a Mongo collection to store our tasks
 export const tasks = new Mongo.Collection('Tasks');
+export const taskLists = new Mongo.Collection('TaskLists');
 
 // Sample Northwind data from oData service.  May not need all of these but
 // leaving in at present.
@@ -12,6 +13,11 @@ if (Meteor.isServer) {
     // Publish tasks
     Meteor.publish('tasks', () => {
         return tasks.find();
+    });
+
+    // Publish task lists
+    Meteor.publish('taskLists', () => {
+      return taskLists.find();
     });
     
     // Publish employees

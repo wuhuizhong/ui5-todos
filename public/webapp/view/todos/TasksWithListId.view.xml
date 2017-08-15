@@ -1,16 +1,56 @@
-<mvc:View
-	controllerName="webapp.controller.todos.TasksWithListId"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
-	<Page id="TasksWithListId" title="{i18n>tasks}"
-		class="sapUiResponsiveContentPadding">
-		<content>
-			<List id="TaskList" headerText="{i18n>TasksWithListId}" items="{viewState>/Task}">
-				<items>
-					<StandardListItem
-						title="{viewState>/name}"/>
-				</items>
-			</List>
-		</content>
-	</Page>
+<mvc:View controllerName="webapp.controller.todos.TasksWithListId"
+          height="100%"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:l="sap.ui.layout"
+          xmlns="sap.m">
+
+    <!-- Page for heading and content padding-->
+    <Page title="{i18n>TasksWithListId}"
+          class="sapUiResponsiveContentPadding">
+        <content>
+            <!-- Grid for responsive layout on different devices -->
+            <l:Grid defaultSpan="XL8 L8 M8 S12"
+                    defaultIndent="XL2 L2 M2 S0">
+
+                <!-- Tasks list -->
+                <List id="TasksWithListId"
+                      items="{
+                    path: 'ViewState>/TasksWithListId',
+                    sorter: {
+                      path: 'createdAt',
+                      descending: true
+                    }}"
+                      mode="MultiSelect"
+                      selectionChange="onSelectionChange">
+                    <!-- List toolbar -->
+                    <headerToolbar>
+                        <Toolbar>
+                            <Label text="{i18n>add}" />
+                            <Input change="onAddTask" placeholder="{i18n>taskText}" />
+                            <ToolbarSpacer />
+                            <ToggleButton tooltip="{i18n>showCompletedTasks}"
+                              pressed="{ViewState>/showCompleted}"
+                              icon="sap-icon://complete"
+                              press="onPressShowCompleted" />
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <!-- Task list item -->
+                    <!-- <StandardListItem title="{text}" /> -->
+                    <CustomListItem selected="{checked}">
+                      <Toolbar>
+                        <FormattedText htmlText="{
+                            parts:[{path:'checked'},{path:'ViewState>text'}],
+                            formatter:'.getTaskTextAsHtml'
+                          }" />
+                        <ToolbarSpacer />
+                        <Button type="Transparent"
+                                press="onPressDeleteTask"
+                                text="X" />
+                      </Toolbar>
+                    </CustomListItem>
+                </List>
+            </l:Grid>
+        </content>
+    </Page>
 </mvc:View>

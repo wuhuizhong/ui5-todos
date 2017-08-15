@@ -18,9 +18,12 @@ sap.ui.define([
         this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
         // Set up local model for view state
-        const viewState = {Task: {}};
-        var oViewStateModel = new JSONModel(viewState);
-        this.getView().setModel(oViewStateModel, "viewState");
+        const ViewState = {
+          showCompleted: true, 
+          TasksWithListId: {}
+        };
+        var oViewStateModel = new JSONModel(ViewState);
+        this.getView().setModel(oViewStateModel, "ViewState");
 
         // Set up route handling
         this._oRouter.attachRoutePatternMatched(this._onRoutePatternMatched, this);
@@ -59,26 +62,24 @@ sap.ui.define([
         }
 
         // Get tasks
-        // var oTask = Mongo.Collection.get("Tasks").find({"listId": this._sListId});
-        var oTask = Mongo.Collection.get("Tasks").find();
-        // meteor mongo
+        var oTaskCursor = Mongo.Collection.get("Tasks").find({"listId": this._sListId});
+        // var oTask = Mongo.Collection.get("Tasks").find();
+        // 命令行查资料: meteor mongo
         // db.Tasks.find({"listId" : "n2sYSzdpwm4hAN5eo"})
-        console.log("this._sListId: " + this._sListId);
-        // console.log("oTask: " + oTask.count());
+        var oTask = oTaskCursor.fetch();
+        console.log("this._sListId: ", this._sListId);
+        console.log("oTask: ", oTaskCursor.count());
+        
         if (!oTask){
           return;
         }
 
         // Store in view model for view property binding
-        const oModel = this.getView().getModel("viewState");
-        oModel.setProperty("/Task", oTask);
+        const oModel = this.getView().getModel("ViewState");
+        oModel.setProperty("/TasksWithListId", oTask);
         console.log(oModel.getData());
-        // var localdata = oModel.getData();
-        // var jsonString = JSON.stringfy(localdata
-        // https://stackoverflow.com/questions/34902699/how-to-wait-for-a-jsonmodel-loaddata-request-in-sapui5-openui5/34925614
-        // oModel.attachRequestCompleted(function() {
-        //   console.log(oModel.getData());
-        // });
+        // 测试: http://localhost:3000/#/tasks/n2sYSzdpwm4hAN5eo
+        
       },
 
       onAddTask: function(oEvent){

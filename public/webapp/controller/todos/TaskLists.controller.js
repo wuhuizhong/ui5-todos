@@ -15,6 +15,11 @@ sap.ui.define([
       oTaskLists: Mongo.Collection.get("TaskLists"),
     
       onInit: function() {
+        // Set up local model for view state
+        const viewState = {};
+        var oViewStateModel = new JSONModel(viewState);
+        this.getView().setModel(oViewStateModel, "viewState");
+      
         // Create Meteor model
         var oModel = new MongoModel();
         this.getView().setModel(oModel);
@@ -25,6 +30,27 @@ sap.ui.define([
 
       onExit: function(){
         this._subscription.stop();
+      },
+
+      onTaskListSelect: function(oEvent) {
+        // Get taskList data for selected item
+        var oList = oEvent.getSource();
+        var oListItem = oList.getSelectedItem();
+        // view 需设置List mode="SingleSelectMaster", 
+        // 否则报错:Cannot read property 'getBindingContext' of null
+        var oItemData = oListItem.getBindingContext().getObject();
+        var oModel = this.getView().getModel("viewState");
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        // console.log("viewState: ", oModel.getData());
+        console.log("oItemData._id: ", oItemData._id);
+  
+        // Nav to TaskList selected, preserving query parameters
+        // TODO adjust route replace to be conditional when adding phone support
+        // this._oRouter.navTo("tasksWithListId", {
+        oRouter.navTo("tasksWithListId", {
+          listId: oItemData._id
+        }, true);
+        
       },
 
       onAddTaskList: function(oEvent){

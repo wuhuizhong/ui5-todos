@@ -16,13 +16,14 @@
 
                 <!-- Tasks list -->
                 <List id="TaskLists"
+                      itemPress="onTaskListSelect"
                       items="{
                     path: '/TaskLists',
                     sorter: {
                       path: 'createdAt',
                       descending: true
                     }}"
-                      selectionChange="onSelectionChange">
+                      mode="SingleSelectMaster">
                     <!-- List toolbar -->
                     <headerToolbar>
                         <Toolbar>
@@ -33,7 +34,8 @@
                     </headerToolbar>
 
                     <!-- Task list item -->
-                    <StandardListItem title="{name}" />
+                    <StandardListItem title="{name}"
+                        type="Active"/>
                 </List>
             </l:Grid>
         </content>

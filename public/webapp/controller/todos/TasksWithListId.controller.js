@@ -34,6 +34,7 @@ sap.ui.define([
         // Subscribe to tasks data.
         // this._subscription = Meteor.subscribe('tasks');
         this._subscription = Meteor.subscribe("tasks", () =>{
+          // URL Refresh load
           this._loadTasksForCurrentRoute();
         });
 
@@ -51,7 +52,8 @@ sap.ui.define([
         if (this._sRouteName === "tasksWithListId"){
           var oArguments = oEvent.getParameters().arguments;
           this._sListId = oArguments.listId;
-          // this._loadTasksForCurrentRoute();
+          // TaskLists.controller onTaskListSelect load
+          this._loadTasksForCurrentRoute();
         }
       },
 

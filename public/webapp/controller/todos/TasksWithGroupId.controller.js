@@ -10,7 +10,7 @@ sap.ui.define([
 ], function(Controller, jQuery, MongoModel, ResourceModel, JSONModel, Filter, FilterOperator, MessageBox) {
   "use strict";
 
-  var CController = Controller.extend("webapp.controller.todos.TasksWithListId", {
+  var CController = Controller.extend("webapp.controller.todos.TasksWithGroupId", {
 
       oTasks: Mongo.Collection.get("Tasks"),
 
@@ -20,7 +20,7 @@ sap.ui.define([
         // Set up local model for view state
         const ViewState = {
           showCompleted: true, 
-          TasksWithListId: {}
+          TasksWithGroupId: {}
         };
         var oViewStateModel = new JSONModel(ViewState);
         this.getView().setModel(oViewStateModel, "ViewState");
@@ -49,27 +49,27 @@ sap.ui.define([
         this._sRouteName = oEvent.mParameters.name;
 
         // Set which view and source files to display in our view state model
-        if (this._sRouteName === "tasksWithListId"){
+        if (this._sRouteName === "tasksWithGroupId"){
           var oArguments = oEvent.getParameters().arguments;
-          this._sListId = oArguments.listId;
-          // TaskLists.controller onTaskListSelect load
+          this._sGroupId = oArguments.groupId;
+          // TaskGroups.controller onTaskGroupSelect load
           this._loadTasksForCurrentRoute();
         }
       },
 
       _loadTasksForCurrentRoute() {
-        // Need list
-        if (!this._sListId){
+        // Need group
+        if (!this._sGroupId){
           return;
         }
 
         // Get tasks
-        var oTaskCursor = Mongo.Collection.get("Tasks").find({"listId": this._sListId});
+        var oTaskCursor = Mongo.Collection.get("Tasks").find({"groupId": this._sGroupId});
         // var oTask = Mongo.Collection.get("Tasks").find();
         // 命令行查资料: meteor mongo
-        // db.Tasks.find({"listId" : "n2sYSzdpwm4hAN5eo"})
+        // db.Tasks.find({"groupId" : "n2sYSzdpwm4hAN5eo"})
         var oTask = oTaskCursor.fetch();
-        console.log("this._sListId: ", this._sListId);
+        console.log("this._sGroupId: ", this._sGroupId);
         console.log("oTask: ", oTaskCursor.count());
         
         if (!oTask){
@@ -78,7 +78,7 @@ sap.ui.define([
 
         // Store in view model for view property binding
         const oModel = this.getView().getModel("ViewState");
-        oModel.setProperty("/TasksWithListId", oTask);
+        oModel.setProperty("/TasksWithGroupId", oTask);
         console.log(oModel.getData());
         // 测试: http://localhost:3000/#/tasks/n2sYSzdpwm4hAN5eo
         
@@ -127,8 +127,8 @@ sap.ui.define([
         }
 
         // Set filter
-        var oTaskList = this.byId("TaskList");
-        oTaskList.getBinding('items').filter(aFilters);
+        var oTasksWithGroupId = this.byId("TasksWithGroupId");
+        oTasksWithGroupId.getBinding('items').filter(aFilters);
       },
 
       onPressDeleteTask: function(oEvent){

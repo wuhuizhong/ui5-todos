@@ -1,11 +1,11 @@
-<mvc:View controllerName="webapp.controller.todos.TasksWithListId"
+<mvc:View controllerName="webapp.controller.todos.TasksWithGroupId"
           height="100%"
           xmlns:mvc="sap.ui.core.mvc"
           xmlns:l="sap.ui.layout"
           xmlns="sap.m">
 
     <!-- Page for heading and content padding-->
-    <Page title="{i18n>TasksWithListId}"
+    <Page title="{i18n>TasksWithGroupId}"
           class="sapUiResponsiveContentPadding">
         <content>
             <!-- Grid for responsive layout on different devices -->
@@ -13,9 +13,9 @@
                     defaultIndent="XL2 L2 M2 S0">
 
                 <!-- Tasks list -->
-                <List id="TasksWithListId"
+                <List id="TasksWithGroupId"
                       items="{
-                    path: 'ViewState>/TasksWithListId',
+                    path: 'ViewState>/TasksWithGroupId',
                     sorter: {
                       path: 'createdAt',
                       descending: true

@@ -10,9 +10,9 @@ sap.ui.define([
 ], function(BaseController, jQuery, MongoModel, ResourceModel, JSONModel, Filter, FilterOperator, MessageBox) {
   "use strict";
 
-  var CController = BaseController.extend("webapp.controller.todos.TaskLists", {
+  var CController = BaseController.extend("webapp.controller.todos.TaskGroups", {
       
-      oTaskLists: Mongo.Collection.get("TaskLists"),
+      oTaskLists: Mongo.Collection.get("TaskGroups"),
     
       onInit: function() {
         // Set up local model for view state
@@ -25,14 +25,14 @@ sap.ui.define([
         this.getView().setModel(oModel);
         
         // Subscribe to task lists data.
-        this._subscription = Meteor.subscribe('taskLists');
+        this._subscription = Meteor.subscribe('taskGroups');
       },
 
       onExit: function(){
         this._subscription.stop();
       },
 
-      onTaskListSelect: function(oEvent) {
+      onTaskGroupSelect: function(oEvent) {
         // Get taskList data for selected item
         var oList = oEvent.getSource();
         var oListItem = oList.getSelectedItem();
@@ -47,13 +47,13 @@ sap.ui.define([
         // Nav to TaskList selected, preserving query parameters
         // TODO adjust route replace to be conditional when adding phone support
         // this._oRouter.navTo("tasksWithListId", {
-        oRouter.navTo("tasksWithListId", {
-          listId: oItemData._id
+        oRouter.navTo("tasksWithGroupId", {
+          groupId: oItemData._id
         }, true);
         
       },
 
-      onAddTaskList: function(oEvent){
+      onAddTaskGroup: function(oEvent){
         var oInput = oEvent.getSource();
         this.oTaskLists.insert({
             name: oInput.getValue(),
@@ -96,8 +96,8 @@ sap.ui.define([
         }
     
         // Set filter
-        var oTaskList = this.byId("TaskList");
-        oTaskList.getBinding('items').filter(aFilters);
+        var oTaskGroups = this.byId("TaskGroups");
+        oTaskGroups.getBinding('items').filter(aFilters);
       },
 
       onPressDeleteTask: function(oEvent){

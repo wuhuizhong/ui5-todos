@@ -77,19 +77,19 @@
 		  "target": ["master", "home"]
 		},
 		{
-		  "pattern": "todolists",
-		  "name": "todoLists",
-		  "target": ["master", "todoLists"]
+		  "pattern": "taskGroups",
+		  "name": "taskGroups",
+		  "target": ["master", "taskGroups"]
 		},
 		{
 		  "pattern": "todos",
 		  "name": "todos",
-		  "target": ["todoLists", "todos"]
+		  "target": ["taskGroups", "todos"]
 		},
 		{
-		  "pattern": "tasks/{listId}",
-		  "name": "tasksWithListId",
-		  "target": ["todoLists", "tasksWithListId"]
+		  "pattern": "tasks/{groupId}",
+		  "name": "tasksWithGroupId",
+		  "target": ["taskGroups", "tasksWithGroupId"]
 		},
 		{
 		  "pattern": "walkthrough",
@@ -149,8 +149,8 @@
             "viewLevel": "1",
             "transition": "flip"
         },
-        "todoLists": {
-            "viewName": "todos/TaskLists",
+        "taskGroups": {
+            "viewName": "todos/TaskGroups",
             "controlAggregation": "masterPages",
             "viewLevel": "1"
         },
@@ -160,8 +160,8 @@
             "viewLevel": "1",
             "transition": "flip"
         },
-        "tasksWithListId": {
-            "viewName": "todos/TasksWithListId",
+        "tasksWithGroupId": {
+            "viewName": "todos/TasksWithGroupId",
             "controlAggregation": "detailPages",
             "viewLevel": "1",
             "transition": "flip"

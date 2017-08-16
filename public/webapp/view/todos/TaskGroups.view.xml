@@ -1,11 +1,11 @@
-<mvc:View controllerName="webapp.controller.todos.TaskLists"
+<mvc:View controllerName="webapp.controller.todos.TaskGroups"
           height="100%"
           xmlns:mvc="sap.ui.core.mvc"
           xmlns:l="sap.ui.layout"
           xmlns="sap.m">
 
     <!-- Page for heading and content padding-->
-    <Page title="{i18n>TaskLists}"
+    <Page title="{i18n>TaskGroups}"
           showNavButton="true"
 		      navButtonPress="onNavBack"
           class="sapUiResponsiveContentPadding">
@@ -14,11 +14,11 @@
             <l:Grid defaultSpan="XL8 L8 M8 S12"
                     defaultIndent="XL2 L2 M2 S0">
 
-                <!-- Tasks list -->
-                <List id="TaskLists"
-                      itemPress="onTaskListSelect"
+                <!-- Tasks Group -->
+                <List id="TaskGroups"
+                      itemPress="onTaskGroupSelect"
                       items="{
-                    path: '/TaskLists',
+                    path: '/TaskGroups',
                     sorter: {
                       path: 'createdAt',
                       descending: true
@@ -28,7 +28,7 @@
                     <headerToolbar>
                         <Toolbar>
                             <Label text="{i18n>add}" />
-                            <Input change="onAddTaskList" placeholder="{i18n>TaskListName}" />
+                            <Input change="onAddTaskGroup" placeholder="{i18n>TaskGroupName}" />
                             <ToolbarSpacer />
                         </Toolbar>
                     </headerToolbar>

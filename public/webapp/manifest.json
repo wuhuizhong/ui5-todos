@@ -89,7 +89,11 @@
 		{
 		  "pattern": "tasks/{groupId}",
 		  "name": "tasksWithGroupId",
-		  "target": ["taskGroups", "tasksWithGroupId"]
+		  "target": ["taskGroups", "taskGroupSingle", "tasksWithGroupId"]
+		},{
+		  "pattern": "todos/overview",
+		  "name": "todosOverview",
+		  "target": ["taskGroups", "taskGroupSingle", "tasksWithGroupId"]
 		},
 		{
 		  "pattern": "walkthrough",
@@ -160,11 +164,26 @@
             "viewLevel": "1",
             "transition": "flip"
         },
-        "tasksWithGroupId": {
-            "viewName": "todos/TasksWithGroupId",
+        "todosOverview": {
+            "viewName": "todos/Overview",
             "controlAggregation": "detailPages",
             "viewLevel": "1",
             "transition": "flip"
+        },
+		"taskGroupSingle": {
+			"parent": "todosOverview",
+			"viewPath": "webapp.view.todos",
+			"viewName": "TaskGroupSingle",
+			"controlId": "TodosOverviewParent",
+			"controlAggregation": "content"
+		},
+        "tasksWithGroupId": {
+			"parent": "todosOverview",
+			"viewPath": "webapp.view.todos",
+            "viewName": "TasksWithGroupId",
+            "controlAggregation": "detailPages",
+			"controlId": "TodosOverviewParent",
+			"controlAggregation": "content"
         },
 		"walkthroughOverview": {
 		  "viewName": "walkthrough/Overview",

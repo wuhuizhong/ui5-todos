@@ -14,7 +14,7 @@
           <StandardListItem id="todos"
               title="{i18n>todos}"
               type="Navigation"
-              custom:to="todos" />
+              custom:to="todosOverview" />
           <StandardListItem id="walkthrough"
               title="{i18n>walkthrough}"
               type="Navigation"

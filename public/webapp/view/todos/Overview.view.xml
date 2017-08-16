@@ -1,0 +1,15 @@
+<mvc:View
+	controllerName="webapp.controller.todos.Overview"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout">
+	<Page id="TodosOverviewParent" title="{i18n>TodosOverview}"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<!-- inserted by routing 
+			在manifest.json指定Page id为 "TodosOverview"，即target中controlId的内容。
+			content将会被router用top 和 content 填充。
+			-->
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,31 @@
+<mvc:View
+	controllerName="webapp.controller.todos.TaskGroupSingle"
+    xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel
+	    headerText="{i18n>SingleSelectMaster}"
+	    binding="{ViewState>/TaskGroup}"
+	    class="sapUiResponsiveMargin"
+	    width="auto">
+		<content>
+            <!-- Grid for responsive layout on different devices -->
+            <l:Grid defaultSpan="XL8 L8 M8 S12"
+                    defaultIndent="XL2 L2 M2 S0">
+			<Toolbar>
+				<Label 
+				    text="{i18n>Group}" />
+				<Input 
+				    change="onUpdateTaskGroup"
+				    value="{ViewState>name}" 
+				    valueLiveUpdate="true" />
+            	<ToolbarSpacer />
+            	<Button 
+            		type="Transparent"
+                    press="onPressDeleteTaskGroup"
+                    text="X" />
+            </Toolbar>
+            </l:Grid>
+		</content>
+	</Panel>
+</mvc:View>

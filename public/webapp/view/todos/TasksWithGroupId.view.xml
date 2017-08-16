@@ -37,10 +37,10 @@
 
                     <!-- Task list item -->
                     <!-- <StandardListItem title="{text}" /> -->
-                    <CustomListItem selected="{checked}">
+                    <CustomListItem selected="{ViewState>checked}">
                       <Toolbar>
                         <FormattedText htmlText="{
-                            parts:[{path:'checked'},{path:'ViewState>text'}],
+                            parts:[{path:'ViewState>checked'},{path:'ViewState>text'}],
                             formatter:'.getTaskTextAsHtml'
                           }" />
                         <ToolbarSpacer />

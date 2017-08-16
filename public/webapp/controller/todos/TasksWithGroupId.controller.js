@@ -15,11 +15,14 @@ sap.ui.define([
       oTasks: Mongo.Collection.get("Tasks"),
 
       onInit: function() {
+        // Include our custom style sheet
+        jQuery.sap.includeStyleSheet("webapp/style.css");
+
         this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
         // Set up local model for view state
         const ViewState = {
-          showCompleted: true, 
+          showCompleted: true,
           TasksWithGroupId: {}
         };
         var oViewStateModel = new JSONModel(ViewState);
@@ -27,9 +30,6 @@ sap.ui.define([
 
         // Set up route handling
         this._oRouter.attachRoutePatternMatched(this._onRoutePatternMatched, this);
-
-        // Include our custom style sheet
-        jQuery.sap.includeStyleSheet("webapp/style.css");
 
         // Subscribe to tasks data.
         // this._subscription = Meteor.subscribe('tasks');
@@ -71,7 +71,7 @@ sap.ui.define([
         var oTask = oTaskCursor.fetch();
         // console.log("this._sGroupId: ", this._sGroupId);
         // console.log("oTask: ", oTaskCursor.count());
-        
+
         if (!oTask){
           return;
         }
@@ -81,7 +81,7 @@ sap.ui.define([
         oModel.setProperty("/TasksWithGroupId", oTask);
         // console.log(oModel.getData());
         // 测试: http://localhost:3000/#/tasks/n2sYSzdpwm4hAN5eo
-        
+
       },
 
       onAddTask: function(oEvent){
@@ -89,7 +89,7 @@ sap.ui.define([
         if (!this._sGroupId){
           return;
         }
-        console.log("this._sGroupId: ", this._sGroupId);
+        // console.log("this._sGroupId: ", this._sGroupId);
         var oInput = oEvent.getSource();
         this.oTasks.insert({
             text: oInput.getValue(),
@@ -97,6 +97,9 @@ sap.ui.define([
             createdAt: new Date()
         });
         oInput.setValue();
+
+        // reload
+        this._loadTasksForCurrentRoute();
       },
 
       onSelectionChange: function(oEvent){
@@ -148,6 +151,8 @@ sap.ui.define([
             if (oAction === MessageBox.Action.OK){
               // Remove the task
               that.oTasks.remove(oTaskData._id);
+              // reload
+              that._loadTasksForCurrentRoute();
             }
           }
         });

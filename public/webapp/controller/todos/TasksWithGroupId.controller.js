@@ -69,8 +69,8 @@ sap.ui.define([
         // 命令行查资料: meteor mongo
         // db.Tasks.find({"groupId" : "n2sYSzdpwm4hAN5eo"})
         var oTask = oTaskCursor.fetch();
-        console.log("this._sGroupId: ", this._sGroupId);
-        console.log("oTask: ", oTaskCursor.count());
+        // console.log("this._sGroupId: ", this._sGroupId);
+        // console.log("oTask: ", oTaskCursor.count());
         
         if (!oTask){
           return;
@@ -79,15 +79,21 @@ sap.ui.define([
         // Store in view model for view property binding
         const oModel = this.getView().getModel("ViewState");
         oModel.setProperty("/TasksWithGroupId", oTask);
-        console.log(oModel.getData());
+        // console.log(oModel.getData());
         // 测试: http://localhost:3000/#/tasks/n2sYSzdpwm4hAN5eo
         
       },
 
       onAddTask: function(oEvent){
+        // Need group
+        if (!this._sGroupId){
+          return;
+        }
+        console.log("this._sGroupId: ", this._sGroupId);
         var oInput = oEvent.getSource();
         this.oTasks.insert({
             text: oInput.getValue(),
+            groupId: this._sGroupId,
             createdAt: new Date()
         });
         oInput.setValue();
@@ -95,7 +101,7 @@ sap.ui.define([
 
       onSelectionChange: function(oEvent){
         var oListItem = oEvent.getParameters().listItem;
-        var oTaskData = oListItem.getBindingContext().getObject();
+        var oTaskData = oListItem.getBindingContext("ViewState").getObject();
 
         // Set the checked property in the database to match the current selection
         this.oTasks.update(oTaskData._id, {
@@ -133,7 +139,7 @@ sap.ui.define([
 
       onPressDeleteTask: function(oEvent){
         var oListItem = oEvent.getSource();
-        var oTaskData = oListItem.getBindingContext().getObject();
+        var oTaskData = oListItem.getBindingContext("ViewState").getObject();
 
         // Ask user to confirm delete
         var that = this;

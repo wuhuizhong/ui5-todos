@@ -1,0 +1,47 @@
+<mvc:View 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m"
+	controllerName="webapp.controller.crud.EmployeesTable">
+	<Page title="{i18n>EmployeesTable}">
+		<content>
+			<Table noDataText="No data" id="idTable" items="{/Employees}">
+				<items>
+					<ColumnListItem type="Navigation" press="onItemPress">
+						<cells>
+							<Text text="{EmployeeID}"/>
+							<Text text="{LastName}"/>
+							<Text text="{FirstName}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns>
+					<Column id="EmployeeIDCol">
+						<header>
+							<Label text="{i18n>EmployeeID}"/>
+						</header>
+					</Column>
+					<Column id="LastNameCol">
+						<header>
+							<Label text="{i18n>LastName}"/>
+						</header>
+					</Column>
+					<Column id="FirstNameCol">
+						<header>
+							<Label text="{i18n>FirstName}"/>
+						</header>
+					</Column>
+				</columns>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://create" text="Create" press="onCreate"/>
+					<Button icon="sap-icon://edit" text="Edit" press="onEdit"/>
+					<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

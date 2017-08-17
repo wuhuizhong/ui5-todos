@@ -1,0 +1,22 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:f="sap.ui.layout.form">
+	<Dialog id="employeeDialog" title="{i18n>EmployeeCRUD}">
+		<f:SimpleForm>
+			<Label text="{i18n>EmployeeID}"/>
+			<Input id="EmployeeID" value="{EmployeeID}"/>
+			<Label text="{i18n>LastName}"/>
+			<Input id="LastName" value="{LastName}"/>
+			<Label text="{i18n>FirstName}"/>
+			<Input id="FirstName" value="{FirstName}"/>
+		</f:SimpleForm>
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button id="SaveCreate" text="{i18n>Save}"/>
+			<Button id="SaveEdit" text="{i18n>SaveEdit}"/>
+			<Button id="CancelButton" text="{i18n>Cancel}" />
+		</Toolbar>
+	</Dialog>
+	
+</core:FragmentDefinition>

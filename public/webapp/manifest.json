@@ -129,6 +129,10 @@
 		  "pattern": "meteor/employees",
 		  "name": "meteorEmployees",
 		  "target": ["masterWalkthrough", "meteorEmployees"]
+		}, {
+		  "pattern": "crud/employees",
+		  "name": "crudEmployees",
+		  "target": ["masterWalkthrough", "crudEmployees"]
 		}
 	  ],
 	  "targets": {
@@ -258,6 +262,12 @@
 		"meteorEmployees": {
 			"viewPath": "webapp.view.meteor",
 			"viewName": "EmployeesMeteor",
+        	"controlAggregation": "detailPages",
+			"viewLevel" : 1
+		},
+		"crudEmployees": {
+			"viewPath": "webapp.view.crud",
+			"viewName": "EmployeesTable",
         	"controlAggregation": "detailPages",
 			"viewLevel" : 1
 		}

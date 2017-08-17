@@ -21,6 +21,10 @@
               title="{i18n>EmployeesMeteor}"
               type="Navigation"
               custom:to="meteorEmployees" />
+          <StandardListItem id="crudEmployees"
+              title="{i18n>EmployeesCrud}"
+              type="Navigation"
+              custom:to="crudEmployees" />
           <StandardListItem id="odataInvoice"
               title="{i18n>InvoiceOData}"
               type="Navigation"

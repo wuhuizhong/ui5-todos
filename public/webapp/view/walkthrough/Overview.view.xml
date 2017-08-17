@@ -1,5 +1,5 @@
 <mvc:View
-		controllerName="webapp.controller.App"
+		controllerName="webapp.controller.walkthrough.Overview"
 		xmlns="sap.m"
 		xmlns:mvc="sap.ui.core.mvc">
 	<Page title="{i18n>homePageTitle}">
@@ -10,6 +10,16 @@
 		</headerContent>
 		<content>
 			<mvc:XMLView viewName="webapp.view.walkthrough.HelloPanel"/>
+			<Panel
+                headerText="{i18n>NavigationAndRouting}"
+                class="sapUiResponsiveMargin"
+				width="auto">
+                <content>
+                	<Button id="displayNotFoundBtn" text="{i18n>DisplayNotFound}" press="onDisplayNotFound" class="sapUiTinyMarginEnd"/>
+    				<Button id="employeeListBtn" text="{i18n>ShowEmployeeList}" press="onNavToEmployees" class="sapUiTinyMarginEnd"/>
+    				<Button id="employeeOverviewBtn" text="{i18n>ShowEmployeeOverview}" press="onNavToEmployeeOverview" class="sapUiTinyMarginEnd"/>
+    			</content>
+			</Panel>
 			<mvc:XMLView viewName="webapp.view.walkthrough.InvoiceList"/>
 		</content>
 	</Page>

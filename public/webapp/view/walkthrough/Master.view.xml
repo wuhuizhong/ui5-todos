@@ -18,11 +18,11 @@
               type="Navigation"
               custom:to="walkthroughOverview" />
           <StandardListItem id="meteorEmployees"
-              title="{i18n>employees}"
+              title="{i18n>EmployeesMeteor}"
               type="Navigation"
               custom:to="meteorEmployees" />
           <StandardListItem id="odataInvoice"
-              title="{i18n>Invoice OData}"
+              title="{i18n>InvoiceOData}"
               type="Navigation"
               custom:to="odataInvoice" />
         </items>

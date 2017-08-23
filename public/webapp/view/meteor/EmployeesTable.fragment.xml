@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 <Page id="employeesTablePage" title="{i18n>EmployeesTable}"
-  class="sapUiResponsiveContentPadding">
+  class="sapUiStdPage">
   <content>
 
     <!-- Table for showing employees -->
@@ -25,7 +25,7 @@
 
         <!-- Table columns -->
         <columns>
-            <Column width="50px"></Column>
+            <!-- <Column width="50px"></Column> -->
             <Column>
                 <Text text="Name"/>
             </Column>
@@ -43,7 +43,7 @@
         <!-- Define what is in each row -->
         <ColumnListItem >
             <cells>
-                <Image height="50px" src="{path: 'Photo', formatter: '.formatter.dataUrlForMsImage'}"/>
+                <!-- <Image height="50px" src="{path: 'Photo', formatter: '.formatter.dataUrlForMsImage'}"/> -->
                 <ObjectIdentifier title="{LastName}, {FirstName}" text="{EmployeeID}"/>
                 <Text text="{Title}"/>
                 <Text text="{Country}"/>
